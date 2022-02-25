@@ -4,7 +4,8 @@ variables:
     databricks_notebooks_promotion: false    #To copy Databricks Notebooks from Repo to Workspace
     databricks_execution: false    #To execute Databricks Notebook 
     sql_ddl: false     #To execute SQL DDL Script
-    hpc_scripts: true    #To copy files from one folder to another on HPC Cluster
+    hpc_scripts: false    #To copy files from one folder to another on HPC Cluster
+    function_app: true
 
 #Azure variables for DevTest
     var_service_connection: 'sp-vx-protlm-dev' #Serive Connection Name
@@ -33,3 +34,10 @@ variables:
     var_source_folder: /hpc/projects/upt/OptimaBio_Dev/Scripts  #Folder Path where scripts are kept
     var_target_folder: /hpc/projects/upt/OptimaBio_Uat/Scripts  #Folder path where scripts are to be transferred
     var_filename: $(var_source_folder)/test1.txt,$(var_source_folder)/test2.txt    #Comma seperated file paths without any space in between eg. '$(var_source_folder)/a.txt,$(var_source_folder)/b.txt,$(var_source_folder)/c.txt'
+    
+    
+ #Variables for Azure Function App
+    var_apptype: functionAppLinux
+    var_appName: mohasinfunc
+    var_package: '$(System.DefaultWorkingDirectory)/_mohasinpathan005-CI (2)/drop/276.zip'
+    var_runtimeStack: 'NODE|10'
