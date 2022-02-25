@@ -14,14 +14,14 @@ steps:
 - task: Npm@1
   displayName: 'Install Dependencies'
   inputs:
-    workingDir: '$(System.DefaultWorkingDirectory)'
+    workingDir: '$(System.DefaultWorkingDirectory)/Components/Function-app'
     verbose: false
 
 - task: Npm@1
   displayName: 'Run build Script'
   inputs:
     command: custom
-    workingDir: '$(System.DefaultWorkingDirectory)'
+    workingDir: '$(System.DefaultWorkingDirectory)/Components/Function-app'
     verbose: false
     customCommand: 'run build --if-present'
 
@@ -29,14 +29,14 @@ steps:
   displayName: 'npm custom'
   inputs:
     command: custom
-    workingDir: '$(System.DefaultWorkingDirectory)'
+    workingDir: '$(System.DefaultWorkingDirectory)/Components/Function-app'
     verbose: false
     customCommand: 'prune --production'
 
 - task: ArchiveFiles@2
   displayName: 'Archive $(System.DefaultWorkingDirectory)'
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/Components/Function-app'
     includeRootFolder: false
     archiveFile: '$(Build.BuildId).zip'
 
