@@ -43,14 +43,14 @@ jobs:
             - template: Components/blob-container/blob-container-pipeline.yml
           - ${{ if eq(variables.function_app, true) }}:
             - template: Components/Function-app/function-app.yml
-  - deployment: Deploy_to_HPC
-    displayName: HPC_Scripts_Promotion_${{ parameters.Environment }}
-    pool: hp
-    environment: 'VxProtLM_${{ parameters.Environment }}'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - checkout: self
-          - ${{ if eq(variables.hpc_scripts, true) }}:
-            - template: Components/hpc-scripts/hpc-pipeline.yml
+  #- deployment: Deploy_to_HPC
+    #displayName: HPC_Scripts_Promotion_${{ parameters.Environment }}
+    #pool: hp
+    #environment: 'VxProtLM_${{ parameters.Environment }}'
+    #strategy:
+      #runOnce:
+        #deploy:
+          #steps:
+          #- checkout: self
+          #- ${{ if eq(variables.hpc_scripts, true) }}:
+            #- template: Components/hpc-scripts/hpc-pipeline.yml
