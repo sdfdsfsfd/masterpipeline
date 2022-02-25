@@ -51,7 +51,7 @@ steps:
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
     
-steps:
+
 - task: AzureFunctionApp@1
   displayName: 'Azure Function App Deploy: mohasinfunc'
   inputs:
