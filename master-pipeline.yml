@@ -1,0 +1,54 @@
+#### Master pipeline to deploy Azure components into respective environments(s) based on flag declared in the variables file ####
+
+parameters:
+- name: Environment
+  type: string
+  values:
+     - DevTest
+     - Uat
+     - Prod
+
+pr: 
+- none
+
+trigger:
+- none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+- template: /Environment/${{ parameters.Environment }}/variables.yml
+- group: ${{variables.var_keyvault}}
+- group: ${{variables.var_sql}}
+
+
+jobs:
+    
+  - deployment: Deployment_Component
+    displayName: Deploying_Component_${{ parameters.Environment }}
+    environment: 'VxProtLM_${{ parameters.Environment }}'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+          - ${{ if eq(variables.databricks_notebooks_promotion, true) }}:
+            - template: Components/databricks/databricks-pipeline.yml
+          - ${{ if eq(variables.databricks_execution, true) }}:
+            - template: Components/databricks/databricks-execution-pipeline.yml
+          - ${{ if eq(variables.sql_ddl, true) }}:
+            - template: Components/sql-ddl/sql-ddl-pipeline.yml
+          - ${{ if eq(variables.blob_container, true) }}:
+            - template: Components/blob-container/blob-container-pipeline.yml
+  - deployment: Deploy_to_HPC
+    displayName: HPC_Scripts_Promotion_${{ parameters.Environment }}
+    pool: hp
+    environment: 'VxProtLM_${{ parameters.Environment }}'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+          - ${{ if eq(variables.hpc_scripts, true) }}:
+            - template: Components/hpc-scripts/hpc-pipeline.yml
