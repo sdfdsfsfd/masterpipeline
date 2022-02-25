@@ -1,5 +1,3 @@
-pool:
-  name: Azure Pipelines
 steps:
 - bash: |
    if [ -f extensions.csproj ]
@@ -52,3 +50,13 @@ steps:
   displayName: 'Publish Artifact: drop'
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
+    
+steps:
+- task: AzureFunctionApp@1
+  displayName: 'Azure Function App Deploy: mohasinfunc'
+  inputs:
+    azureSubscription: 'Pay-As-You-Go (40783f5c-2558-41a9-a5af-97b47669376e)'
+    appType: functionAppLinux
+    appName: mohasinfunc
+    package: '$(System.DefaultWorkingDirectory)/_mohasinpathan005-CI (2)/drop/276.zip'
+    runtimeStack: 'NODE|10'
