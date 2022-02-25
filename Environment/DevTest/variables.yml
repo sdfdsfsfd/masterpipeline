@@ -1,0 +1,35 @@
+#Set component to 'true' for deployment
+variables:
+    blob_container: false     #To create a Blob Container
+    databricks_notebooks_promotion: false    #To copy Databricks Notebooks from Repo to Workspace
+    databricks_execution: false    #To execute Databricks Notebook 
+    sql_ddl: false     #To execute SQL DDL Script
+    hpc_scripts: true    #To copy files from one folder to another on HPC Cluster
+
+#Azure variables for DevTest
+    var_service_connection: 'sp-vx-protlm-dev' #Serive Connection Name
+    var_subscription: '5af734a0-f2ab-4838-b947-fb9e0457afc2' #Subscription ID
+    var_resourcegroup: 'VX-GlobalVaccinesDataAnalytics-AppResources-DevTest' #Resource Group Name
+    var_location: 'East US 2' #Location
+    var_keyvault: 'variable_kv' #Variable Group Name in Azure DevOps Pipeline Library to which Key Vault is Linked
+    var_sql: 'variable_sq'   #Variable Group Name in Azure DevOps Pipeline Library in which database name (dname), db Server name (sname), databricks workspace name (workspace) is saved
+
+#Variables for Blob Container Creation
+    var_storagename: 'us6vxdaradoptbdevsac001' #Storage Account Name
+    var_containername: 'testcontainer2100'  #Container Name
+
+#Variables for Databricks Notebooks Promotion/Execution to Workspace
+    var_target_path: 'Components/databricks/notebooksfolder' #Path in the Repo where Databricks Notebooks are kept
+    var_workspacefolder_path: '/Shared/protlm-testing' #Path in the Databricks Workspace
+    var_clusterid: 0915-092336-have901  #Clusterid of Databricks
+    var_notebookpath: '/Shared/protlm-testing/sample'  #Path of the Databricks Notebook to be executed
+
+#Variables for SQL DDL Script Execution
+    var_sqlfolder_path: 'Components/sql-ddl/ddl-scripts'   #Path in the Repo where SQL DDL Scripts are placed
+    var_sqlfile_name: 'Components/sql-ddl/ddl-scripts/queryinsert.sql'  #Name of the SQL DDL Script
+
+
+#Variables for HPC Scripts Promotion
+    var_source_folder: /hpc/projects/upt/OptimaBio_Dev/Scripts  #Folder Path where scripts are kept
+    var_target_folder: /hpc/projects/upt/OptimaBio_Uat/Scripts  #Folder path where scripts are to be transferred
+    var_filename: $(var_source_folder)/test1.txt,$(var_source_folder)/test2.txt    #Comma seperated file paths without any space in between eg. '$(var_source_folder)/a.txt,$(var_source_folder)/b.txt,$(var_source_folder)/c.txt'
