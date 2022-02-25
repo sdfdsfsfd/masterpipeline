@@ -19,8 +19,8 @@ pool:
 
 variables:
 - template: /Environment/${{ parameters.Environment }}/variables.yml
-- group: ${{variables.var_keyvault}}
-- group: ${{variables.var_sql}}
+#- group: ${{variables.var_keyvault}}
+#- group: ${{variables.var_sql}}
 
 
 jobs:
