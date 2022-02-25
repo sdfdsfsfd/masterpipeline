@@ -8,7 +8,7 @@ variables:
     function_app: true
 
 #Azure variables for DevTest
-    var_service_connection: 'sp-vx-protlm-dev' #Serive Connection Name
+    var_service_connection: 'Pay-As-You-Go (40783f5c-2558-41a9-a5af-97b47669376e)' #Serive Connection Name
     var_subscription: '5af734a0-f2ab-4838-b947-fb9e0457afc2' #Subscription ID
     var_resourcegroup: 'VX-GlobalVaccinesDataAnalytics-AppResources-DevTest' #Resource Group Name
     var_location: 'East US 2' #Location
