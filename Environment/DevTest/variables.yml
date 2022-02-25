@@ -38,6 +38,6 @@ variables:
     
  #Variables for Azure Function App
     var_apptype: functionAppLinux
-    var_appName: mohasinfunc
+    var_appname: mohasinfunc
     var_package: '$(System.DefaultWorkingDirectory)/_mohasinpathan005-CI (2)/drop/276.zip'
-    var_runtimeStack: 'NODE|10'
+    var_runtimestack: 'NODE|10'
