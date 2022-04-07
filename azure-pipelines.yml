@@ -1,0 +1,21 @@
+# Starter pipeline
+
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Pay-As-You-Go (40783f5c-2558-41a9-a5af-97b47669376e)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az config set extension.use_dynamic_install=yes_without_prompt
+      az storage container exists --name testcontainer --account-name us6vxdaradoptbdevsac001 --sas-token sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupitfx&se=2023-12-30T20:01:32Z&st=2022-01-12T12:01:32Z&spr=https&sig=5MXgbK5ZvPwePH5jhnnBEapRjWf%2Ft%2F8RVrTRkqaEK1k%3D
