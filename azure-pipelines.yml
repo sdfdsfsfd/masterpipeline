@@ -18,4 +18,4 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az config set extension.use_dynamic_install=yes_without_prompt
-      az storage container exists --name testcontainer --account-name us6vxdaradoptbdevsac001 --sas-token sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupitfx&se=2023-12-30T20:01:32Z&st=2022-01-12T12:01:32Z&spr=https&sig=5MXgbK5ZvPwePH5jhnnBEapRjWf%2Ft%2F8RVrTRkqaEK1k%3D
+      az storage container exists --name testcontainer --account-name newstrac --sas-token ?sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupitfx&se=2022-04-09T14:46:40Z&st=2022-04-07T06:46:40Z&spr=https&sig=CurCPgm8FSZcGeo5aK6dPUSNo4CIL0UTvMg12gTCZG8%3D
