@@ -13,7 +13,7 @@ pool:
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'Pay-As-You-Go (40783f5c-2558-41a9-a5af-97b47669376e)'
+    azureSubscription: 'Azure Pass - Sponsorship (99963bef-cb91-432f-9dc7-073aefa2802f)'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
