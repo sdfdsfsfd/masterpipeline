@@ -19,5 +19,5 @@ steps:
     inlineScript: |
       #az config set extension.use_dynamic_install=yes_without_prompt
       az upgrade --yes
-      az storage blob exists -c testcontainer -n sample.txt --account-name newstrac --sas-token ?sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupitfx&se=2022-04-12T18:42:29Z&st=2022-04-11T10:42:29Z&spr=https&sig=qjlEbRt1utI6meo1Z7mWndsBgq3xzgfk%2FNbx1KHA%2BtE%3D
+      az storage blob exists -c testcontainer -n sample.txt --account-name newstrac1 --sas-token ?sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupitfx&se=2022-04-12T20:34:46Z&st=2022-04-11T12:34:46Z&spr=https&sig=AIh3Mu1BVBZvsk06AA6tOwQcJTVn2ye6kQ7Eyygxjlg%3D
       #az storage blob directory exists -c testcontainer -d  testsubdir --account-name newstrac1 --sas-token ?sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupx&se=2022-04-09T15:04:28Z&st=2022-04-07T07:04:28Z&spr=https&sig=w5J4vQf0wOUUk2yiU0ysHjdOsYbaLQhVlVtYIUY3Jl4%3D
