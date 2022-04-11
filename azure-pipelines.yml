@@ -19,6 +19,7 @@ steps:
     inlineScript: |
       #az config set extension.use_dynamic_install=yes_without_prompt
       #az upgrade --yes
-      az storage blob exists -c testcontainer -n sample.txt --account-name newstrac1 --connection-string https://newstrac1.blob.core.windows.net/testcontainer?sp=r&st=2022-04-11T13:14:38Z&se=2022-04-11T21:14:38Z&spr=https&sv=2020-08-04&sr=c&sig=HQuD%2BFD3Cnrk73qi8i5rWw4dxpSHSAk6PyJg9FaZg94%3D
+      az storage blob exists -c testcontainer -n sample.txt --account-name newstrac1 --connection-string DefaultEndpointsProtocol=https;AccountName=newstrac1;AccountKey=E30o0AnPF78lFjtXc7GDq69n2/OtCwoLo+/xjSerYldWrJiZiPRO2EcoaINrvU0oqwFrA6E9qihh+ASt/UjAVg==;EndpointSuffix=core.windows.net
+      ##https://newstrac1.blob.core.windows.net/testcontainer?sp=r&st=2022-04-11T13:14:38Z&se=2022-04-11T21:14:38Z&spr=https&sv=2020-08-04&sr=c&sig=HQuD%2BFD3Cnrk73qi8i5rWw4dxpSHSAk6PyJg9FaZg94%3D
       #--sas-token ?sp=r&st=2022-04-11T13:14:38Z&se=2022-04-11T21:14:38Z&spr=https&sv=2020-08-04&sr=c&sig=HQuD%2BFD3Cnrk73qi8i5rWw4dxpSHSAk6PyJg9FaZg94%3D
       #az storage blob directory exists -c testcontainer -d  testsubdir --account-name newstrac1 --sas-token ?sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupx&se=2022-04-09T15:04:28Z&st=2022-04-07T07:04:28Z&spr=https&sig=w5J4vQf0wOUUk2yiU0ysHjdOsYbaLQhVlVtYIUY3Jl4%3D
